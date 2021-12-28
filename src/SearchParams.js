@@ -7,7 +7,7 @@ const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
-  const [pets, setPets] = useState("");
+  const [pets, setPets] = useState([]);
   const breeds = [];
 
   useEffect(() => {

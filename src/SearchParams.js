@@ -9,7 +9,7 @@ const SearchParams = () => {
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const breeds = [];
-  const value = []
+  const value = [];
 
   useEffect(() => {
     requestPets();
@@ -96,11 +96,14 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
-      {pets.map(pet => (
-        <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
-
+      {pets.map((pet) => (
+        <Pet
+          name={pet.name}
+          animal={pet.animal}
+          breed={pet.breed}
+          key={pet.id}
+        />
       ))}
-
     </div>
   );
 };

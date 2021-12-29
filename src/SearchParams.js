@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
-import Pet from "./Pet";
+import { useState, useEffect } from "react"
+import useBreedList from "./useBreedList";
+import Results from "./Results";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "raptile"];
 
 const SearchParams = () => {
-  const [location, setLocation] = useState("Seattle, WA");
+  const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [];
+  const [breeds] = useBreedList(animal);
+  // const value = [];
 
   useEffect(() => {
     requestPets();
@@ -21,14 +23,42 @@ const SearchParams = () => {
     const json = await res.json();
     // setPets(json.pets)
     setPets(json.pets);
-    
   }
- 
-  console.log(pets)
+  // console.log(typeof pets)
+  // {
+  //   pets.map((pet) => {
+  //     return (
+  //       value[pet.name] = pet.animal
+  //     )
+  // }
+  // // console.log(value)
+  // }
+  // let petsObj = []
+  // for (let i = 0; i < pets.length; i++) {
+  //   petsObj.push(pets[i])
+  // }
+  // console.log("pets obj", petsObj)
+  // const myUsers = petsObj
+  // console.log(myUsers)
+  // const usersByLikes = myUsers.map(item => {
+  //   const container = {};
+
+  //   container[item.name] = item.name;
+  //   container.age = item.name.length * 10;
+
+  //   return container;
+  // })
+
+  // console.log("user likes ", usersByLikes);
 
   return (
     <div className="search-params">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">
           Location
           <input
@@ -72,14 +102,7 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
-      {/* {pets.map((pet) => (
-        <Pet
-          name={pet.name}
-          animal={pet.animal}
-          breed={pet.breed}
-          key={pet.id}
-        />
-      ))} */}
+      <Results pets={pets} />
     </div>
   );
 };

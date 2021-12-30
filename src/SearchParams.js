@@ -24,6 +24,7 @@ const SearchParams = () => {
     // setPets(json.pets)
     setPets(json.pets);
   }
+
   // console.log(typeof pets)
   // {
   //   pets.map((pet) => {

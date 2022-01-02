@@ -6,9 +6,16 @@
 //   ]);
 // };
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-const Pet = ({ name, animal, breed, location, images, id }) => {
+const Pet = ({
+  name,
+  animal,
+  breed,
+  location,
+  images,
+  id
+}) => {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
 
   if (images.length) {
@@ -24,6 +31,7 @@ const Pet = ({ name, animal, breed, location, images, id }) => {
         <h1>{name}</h1>
         <h2>{`${animal} - ${breed} - ${location}`}</h2>
       </div>
+
     </Link>
   );
 };

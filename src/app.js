@@ -16,10 +16,10 @@ const App = () => {
           </Link>
         </header>
         <Switch>
-          <Route path="/details/:id">
+          <Route path="/details/:id" >
             <Details />
           </Route>
-          <Route path="/">
+          <Route path="/" >
             <SearchParams />
           </Route>
         </Switch>
@@ -28,9 +28,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<StrictMode><App /></StrictMode>, document.getElementById("root"));

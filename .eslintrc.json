@@ -17,6 +17,7 @@
         "import",
         "jsx-a11y"
     ],
+    "parser":"@babe;/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 2021,
         "sourceType": "module",

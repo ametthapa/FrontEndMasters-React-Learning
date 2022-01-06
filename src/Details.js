@@ -3,6 +3,8 @@
 // }
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 class Details extends Component {
     // constructor() {
@@ -26,9 +28,12 @@ class Details extends Component {
                 <h2>Loading...</h2>
             )
         }
-        const { animal, breed, name, description, city, state } = this.state;
+        const { animal, breed, name, description, city, state, images } = this.state;
+
+        // throw new Error("lol");
         return (
             <div className="details">
+                <Carousel images={images} />
                 <div>
                     <h1>{name}</h1>
                     <h2>{animal} - {breed} -{city}, {state}</h2>
@@ -39,6 +44,12 @@ class Details extends Component {
         )
     }
 }
+const DetailsWithRouter = withRouter(Details);
 
-
-export default withRouter(Details);
+export default function DetailsWithErrorBoundary() {
+    return (
+        <ErrorBoundary>
+            <DetailsWithRouter />
+        </ErrorBoundary>
+    )
+}

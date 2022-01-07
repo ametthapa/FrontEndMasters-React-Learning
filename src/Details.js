@@ -39,9 +39,10 @@ class Details extends Component {
                     <h1>{name}</h1>
                     <h2>{animal} - {breed} -{city}, {state}</h2>
                     <ThemeContext.Consumer>
-                        {([theme]) => {
+                        {([theme]) => (
                             <button style={{ backgroundColor: theme }}>Adopt {name}</button>
-                        }}
+                        )}
+                        {/* either themeHooke and themeHook[0] of [theme] and theme */}
                     </ThemeContext.Consumer>
                     <p>{description}</p>
                 </div>
